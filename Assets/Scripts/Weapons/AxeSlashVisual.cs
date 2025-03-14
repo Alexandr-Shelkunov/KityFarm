@@ -1,15 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class AxeVisual : MonoBehaviour
+public class AxeSlashVisual : MonoBehaviour
 {
-
     [SerializeField] private Axe axe;
 
+    private string ATTACK = "Attack";
     private Animator animator;
-    private const string ATTACK = "Attack";
 
 
     private void Awake()
@@ -19,7 +18,7 @@ public class AxeVisual : MonoBehaviour
 
     private void Start()
     {
-       axe.OnAxeSwing += Axe_OnAxeSwing;
+        axe.OnAxeSwing += Axe_OnAxeSwing;
     }
 
     private void Axe_OnAxeSwing(object sender, System.EventArgs e)
@@ -27,8 +26,4 @@ public class AxeVisual : MonoBehaviour
         animator.SetTrigger(ATTACK);
     }
 
-    public void TriggerEndAttackAnimation()
-    {
-       axe.AttackColliderTurnOff();
-    }
 }
